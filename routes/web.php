@@ -22,6 +22,7 @@ Route::resource('question', QuestionController::class);
 Route::get('question/add/{id}', [QuestionController::class, 'create']);
 Route::post('question/add/{id}', [QuestionController::class, 'store']);
 Route::post('answer/{quiz}', [QuizController::class, 'answer']);
+Route::get('list', [QuizController::class, 'list']);
 
 Route::get('/', function () {
     return view('welcome');

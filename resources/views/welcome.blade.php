@@ -88,7 +88,7 @@
                                 <h5 class="text-primary text-uppercase mb-3 animated slideInDown">অনলাইন মডেল টেস্ট</h5>
                                 <h1 class="display-3 text-white animated slideInDown">নার্সিং চাকরির পরীক্ষার পূর্ণাঙ্গ প্রশ্ন</h1>
                                 <p class="fs-5 text-white mb-4 pb-2">নির্দিষ্ট সময়ে পরীক্ষা দেওয়ার মাধ্যমে আপনার প্রস্তুতি যাচাই করুন এবং আত্মবিশ্বাস বাড়ান। </p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">মডেল টেস্ট</a>
+                                <a href="{{url('list')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">মডেল টেস্ট</a>
                                 <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">চাকরির বিজ্ঞপ্তি</a>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                                 <h5 class="text-primary text-uppercase mb-3 animated slideInDown">নার্সিং চাকরির বিজ্ঞপ্তি</h5>
                                 <h1 class="display-3 text-white animated slideInDown">সরকারি বেসরকারি নার্সিং চাকরির বিজ্ঞপ্তি</h1>
                                 <p class="fs-5 text-white mb-4 pb-2">সারা দেশের সরকারি বেসরকারি নার্সিং চাকরির বিজ্ঞপ্তি দেখুন।</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">মডেল টেস্ট</a>
+                                <a href="{{url('list')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">মডেল টেস্ট</a>
                                 <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">চাকরির বিজ্ঞপ্তি</a>
                             </div>
                         </div>

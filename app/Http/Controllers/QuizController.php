@@ -98,8 +98,21 @@ class QuizController extends Controller
     {
         $ans=$request->all();
         $questions=$quiz->questions;
+
         return view('ans', compact('ans','questions','quiz'));
     }
+
+    public function list()
+    {
+        $lists=quiz::select('current_number', 'number', 'id', 'time', 'catagory', 'title')
+        ->groupBy('current_number', 'number', 'id', 'time', 'catagory', 'title')
+        ->havingRaw('current_number = number')
+        ->latest()->paginate(10);;
+
+
+        return view('list', compact('lists'));
+    }
+
 
 
     /**

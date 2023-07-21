@@ -77,20 +77,17 @@
 
 <div class="container">
 
-    <div id="timer" class="sticky-top w-100 p-2 bg-dark text-white text-center" style="opacity: 0.5;">
-        <span id="timer-display">00:00</span>
-    </div>
+    <div class="text-center pt-3">
+    <span class="text-center">Your Mark:</span><span id="timer" class="text-center"></span>
+</div>
 
-   <div>
     <div class="my-3 ">
-        <div>
-            <h2>{{$quiz->title}}</h2> @php
+
+            <h4>{{$quiz->title}}</h4> @php
                 $mark=0;
             @endphp
 
-            <form action="{{url('quiz').'/'.$quiz->id}}" method="POST">
-                @csrf
-                @method('patch')
+
             @foreach ($questions as $key=>$question)
 
             <div class="card">
@@ -128,20 +125,20 @@
                         @endif
                     @endif
                 </div>
-            </div> <br>
 
+            </div><br>
             @endforeach
 
             <div class="container">
 
 
-<div class="container"><div class="sticky-top">{{$mark}}</div></div>
+
 
 
 
         </div>
-    </form>
-    </div>
+
+
    </div>
 
 </div>
