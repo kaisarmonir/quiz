@@ -118,6 +118,17 @@
                   </p>
                 </a>
               </li>
+              
+              <li class="nav-item">
+                <a href="{{url('result')}}" class="nav-link">
+                    <i class="nav-icon fas fa-book"></i>
+                  <p>
+                    Results
+
+                  </p>
+                </a>
+              </li>
+
 
               <li class="nav-item">
                 <a href="/page/create" class="nav-link">

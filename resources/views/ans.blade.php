@@ -45,7 +45,7 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <a href="{{url('/')}}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eNURSING</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -53,9 +53,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
 
-                <a href="courses.html" class="nav-item nav-link">Model test</a>
+                <a href="{{url('list')}}" class="nav-item nav-link">Model test</a>
               <!--   <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu fade-down m-0">
@@ -64,12 +64,12 @@
                         <a href="404.html" class="dropdown-item">404 Page</a>
                     </div>
                 </div>  -->
-				<a href="contact.html" class="nav-item nav-link">Job circular</a>
+				<a href="{{url('circular')}}" class="nav-item nav-link">Job circular</a>
 
-                <a href="contact.html" class="nav-item nav-link">Admission</a>
-				<a href="about.html" class="nav-item nav-link">Review</a>
+                <a href="#" class="nav-item nav-link">Admission</a>
+				<a href="#" class="nav-item nav-link">Review</a>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Exam Now<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="{{url('list')}}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Exam Now<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -78,7 +78,10 @@
 <div class="container">
 
     <div class="text-center pt-3">
-    <span class="text-center">Your Mark:</span><span id="timer" class="text-center"></span>
+         নতুন মডেল টেস্টের আপডেট নিয়মিত পেতে "Nursing job preparation" নামের আমাদের অফিশিয়াল ফেসবুক গ্রুপে যুক্ত হোন।
+            <a href="https://facebook.com/groups/1635432706963590/" id="myLink"><button class="btn btn-primary" id="myButton"> Our facebook group</button></a> <a href="https://chat.whatsapp.com/GXyhy83XXE89GZw2Cnksoi"><button class="btn btn-primary"> Our whatsapp group</button></a>
+            <br> <br>
+   <h5> <span class="text-center">Your Mark: </span><span id="timer" class="text-center"></span>/{{$quiz->number}}</h5> 
 </div>
 
     <div class="my-3 ">
@@ -92,7 +95,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <p class="fw-bold">{{$key+1}}. {{$question->question}}?</p>
+                    <p class="fw-bold">{{$key+1}}. {{$question->question}}</p>
 
                 </div>
                 <div class="card-body">
@@ -123,12 +126,17 @@
                             <span> Your answer:</span> <span><p class="text-danger">{{$question->$incorr}} <i class="fa fa-times" aria-hidden="true"></i></p></span>
                             Right answer: <span><p class="text-primary">{{$question->$corr}}</p></span>
                         @endif
+                         @else
+                        <span> Your answer:</span> <span> <p class="text-danger">Not answered.</p></span>
+                            Right answer: <span><p class="text-primary">{{$question->$corr}}</p></span>
                     @endif
                 </div>
 
             </div><br>
             @endforeach
-
+            
+           
+            
             <div class="container">
 
 
@@ -159,7 +167,7 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mirpur-1, Dhaka, Bangladesh</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+880xxxxxxx</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+8801971713235</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
@@ -239,7 +247,24 @@
     <script>
         document.getElementById("timer").innerHTML={{$mark}};
     </script>
+    <script>
+$(document).ready(function() {
+    // Attach a click event listener to the link
+    $("#myLink").click(function(event) {
+        event.preventDefault(); // Prevent the default link behavior
 
+        // Perform AJAX request
+        $.ajax({
+            url: "{{url('fbgroup')}}",
+            type: "GET", // or "POST" depending on your needs
+        })
+            // After the AJAX request is completed, navigate to the link
+            window.location.href = $("#myLink").attr("href");
+
+    });
+});
+
+    </script>
 </body>
 
 </html>

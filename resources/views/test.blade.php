@@ -6,8 +6,8 @@
     <title>eNURSING - eLearning platform</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
-    <meta content="Online Nunsing Job Circular and model test Platform" property="og:description">
-	<meta content="Nunsing Job Preparation" property="og:title">
+    <meta content="Online Nursing Job Circular and model test Platform" property="og:description">
+	<meta content="Nursing Job Preparation - Online Exam" property="og:title">
 	<meta content="{{url('img/ste.jpg')}}" property="og:image">
 	<meta content="" name="keywords">
 
@@ -45,7 +45,7 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <a href="{{url('/')}}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eNURSING</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -53,9 +53,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
 
-                <a href="courses.html" class="nav-item nav-link">Model test</a>
+                <a href="{{url('list')}}" class="nav-item nav-link">Model test</a>
               <!--   <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu fade-down m-0">
@@ -64,12 +64,12 @@
                         <a href="404.html" class="dropdown-item">404 Page</a>
                     </div>
                 </div>  -->
-				<a href="contact.html" class="nav-item nav-link">Job circular</a>
+				<a href="{{url('circular')}}" class="nav-item nav-link">Job circular</a>
 
-                <a href="contact.html" class="nav-item nav-link">Admission</a>
-				<a href="about.html" class="nav-item nav-link">Review</a>
+                <a href="#" class="nav-item nav-link">Admission</a>
+				<a href="#" class="nav-item nav-link">Review</a>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Exam Now<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="{{url('list')}}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Exam Now<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -78,7 +78,7 @@
 <div class="container">
 
     <div id="timer" class="sticky-top w-100 p-2 bg-dark text-white text-center" style="opacity: 0.5;">
-        <span id="timer-display">00:00</span>
+        <span id="timer-display">05:00</span>
     </div>
 
    <div>
@@ -87,38 +87,38 @@
             <h2>{{$quiz->title}}</h2>
             <form action="{{url('answer').'/'.$quiz->id}}" method="POST">
                 @csrf
-
+                Your Name: <input type="text" name="name" class="" id="name" required><br><br>
             @foreach ($questions as $key=>$question)
 
             <div class="card">
                 <div class="card-header">
-                    <p class="fw-bold">{{$key+1}}. {{$question->question}}?</p>
+                    <p class="fw-bold">{{$key+1}}. {{$question->question}}</p>
 
                 </div>
                 <div class="card-body">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="question{{$key+1}}" id="question{{$key+1}}" value="a">
+                        <input class="form-check-input" type="radio" name="question{{$key+1}}" id="question{{$key+1}}a" value="a">
                         <label class="form-check-label" for="question{{$key+1}}">
                             {{$question->a}}
                         </label>
                       </div>
 
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="question{{$key+1}}" id="question{{$key+2}}" value="b">
+                        <input class="form-check-input" type="radio" name="question{{$key+1}}" id="question{{$key+2}}b" value="b">
                         <label class="form-check-label" for="question{{$key+2}}">
                             {{$question->b}}
                         </label>
                       </div>
 
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="question{{$key+1}}" id="question{{$key+3}}" value="c">
+                        <input class="form-check-input" type="radio" name="question{{$key+1}}" id="question{{$key+3}}c" value="c">
                         <label class="form-check-label" for="question{{$key+3}}">
                             {{$question->c}}
                         </label>
                       </div>
 
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="question{{$key+1}}" id="question{{$key+4}}" value="d">
+                        <input class="form-check-input" type="radio" name="question{{$key+1}}" id="question{{$key+4}}d" value="d">
                         <label class="form-check-label" for="question{{$key+4}}">
                             {{$question->d}}
                         </label>
@@ -156,7 +156,7 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mirpur-1, Dhaka, Bangladesh</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+880xxxxxxx</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+8801971713235</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>

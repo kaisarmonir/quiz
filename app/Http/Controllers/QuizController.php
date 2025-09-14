@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\quiz;
 use Illuminate\Http\Request;
+Use App\Models\result;
 
 class QuizController extends Controller
 {
@@ -99,6 +100,23 @@ class QuizController extends Controller
         $ans=$request->all();
         $questions=$quiz->questions;
 
+        $mark=0;
+        foreach ($questions as $key=>$question){
+            $opt='question'.$key+1;
+            $corr=$question->right;
+
+            if (isset($ans[$opt])){
+           if ($ans[$opt]==$question->right){
+
+
+            $mark++;}
+        }}
+        $result=new result;
+        $result->name=$request->name;
+        $result->mark=$mark;
+        $result->total=$quiz->questions()->count();
+        $result->quiz=$quiz->title;
+        $result->save();
         return view('ans', compact('ans','questions','quiz'));
     }
 
@@ -107,7 +125,7 @@ class QuizController extends Controller
         $lists=quiz::select('current_number', 'number', 'id', 'time', 'catagory', 'title')
         ->groupBy('current_number', 'number', 'id', 'time', 'catagory', 'title')
         ->havingRaw('current_number = number')
-        ->latest()->paginate(10);;
+        ->latest()->paginate(10);
 
 
         return view('list', compact('lists'));
